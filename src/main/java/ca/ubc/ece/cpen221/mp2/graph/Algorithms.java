@@ -64,7 +64,9 @@ public class Algorithms {
 	 * @return
 	 */
 	public static Set<List<Vertex>> breadthFirstSearch(Graph graph) {
+		//Set<List<Vertex>> verticesOfVertices= new Set<List<Vertex>>();
 		// TODO: Implement this method
+		/*boolean visited array--> mark true as you travel*/
 		return null; // this should be changed
 	}
 
