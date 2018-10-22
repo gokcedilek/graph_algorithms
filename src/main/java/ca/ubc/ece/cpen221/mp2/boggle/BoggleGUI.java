@@ -4,8 +4,8 @@ package ca.ubc.ece.cpen221.mp2.boggle;
  *  Dependencies: BogglePlayer.java BoggleBoard.java
  *
  *  GUI for the boggle solver. Pits the user against a computer opponent
- *  of various difficulties. Can be launched from the command line, where 
- *  the default size of the board for that game must be specified. 
+ *  of various difficulties. Can be launched from the command line, where
+ *  the default size of the board for that game must be specified.
  *  % javac BoggleGUI.java
  *
  *  % java BoggleGUI
@@ -65,7 +65,7 @@ public class BoggleGUI extends JFrame {
     private static final int IMPOSSIBLE = 3;
 
     // keep these two values in sync!
-    // used to force the JTextfield and the JList to be the same length 
+    // used to force the JTextfield and the JList to be the same length
     private static final int DEF_COLUMNS = 10;
     private static final String MAX_WORD_SIZE = "INCONSEQUENTIALLY";
     private final JTextField entryField;
@@ -119,7 +119,7 @@ public class BoggleGUI extends JFrame {
         setLocationRelativeTo(null);
         this.makeMenuBar();
 
-        // timer panel 
+        // timer panel
         JPanel timerPanel = new JPanel();
         JLabel timerLabel = new JLabel("Timer:");
         String seconds = String.format("%02d", (GAME_TIME - elapsedTime) % SECONDS_PER_MINUTE);
@@ -338,7 +338,7 @@ public class BoggleGUI extends JFrame {
                         .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        // layout for the left and right panels 
+        // layout for the left and right panels
         Container content = getContentPane();
         GroupLayout layout = new GroupLayout(content);
         content.setLayout(layout);
@@ -979,9 +979,20 @@ public class BoggleGUI extends JFrame {
         private void dfs(String s, int curChar, int pathIndex, int i, int j) {
             // if the word has already been found
             // if (foundWord) return;
-            // out of bounds
-            if (i < 0 || j < 0 || i >= BOARD_ROWS || j >= BOARD_COLS) {
-                return;
+            // out of bounds, wrap around
+            if (i < 0) {
+                i = BOARD_ROWS - i;
+            } else {
+                if (i > BOARD_ROWS) {
+                    i = i % BOARD_ROWS;
+                }
+            }
+            if (j < 0) {
+                j = BOARD_COLS - j;
+            } else {
+                if (j > BOARD_COLS) {
+                    j = j % BOARD_COLS;
+                }
             }
             // return if entire word is found
             if (curChar >= s.length()) {

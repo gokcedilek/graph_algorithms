@@ -63,7 +63,9 @@ public class Vertex {
         Vertex other = (Vertex) obj;
         return (label.equals(other.label) && content.equals(other.content));
     }
-
+    public String getContent(){
+        return this.content;
+    }
     /**
      * For fast equality checking. This method overrides hashCode() in Object.
      *
