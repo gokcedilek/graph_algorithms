@@ -41,7 +41,7 @@ public class AdjacencyListGraph implements Graph {
         LinkedList<Vertex> listToIterate= adj_list.get(index1);
 
         for (Vertex v: listToIterate ) {
-            if(v.getLabel().equals(v2.getLabel()) ){
+            if(v.equals(v2) ){
                 return true;
             }
         }
