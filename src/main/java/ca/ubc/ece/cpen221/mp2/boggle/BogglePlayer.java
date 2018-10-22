@@ -1,24 +1,27 @@
 package ca.ubc.ece.cpen221.mp2.boggle;
 
 import java.util.TreeSet;
-import java.util.Set;
+import java.util.*;
+import java.lang.*;
 
 public class BogglePlayer {
 
     // Some empty methods provided to ensure that the
     // build succeeds. You should implement these methods
     // and the others that are required.
+    String[] dictionary;
 
     public BogglePlayer(String[] dictionary) {
-        
+
     }
 
     public Set<String> getAllValidWords(BoggleBoard board) {
         return new TreeSet<String>();
+            
     }
 
     public int scoreOf(String word){
-        if(!dictionary.contains(word)){
+        if(!Arrays.asList(dictionary).contains(word)){
             return 0;
         }
         int score=0;
