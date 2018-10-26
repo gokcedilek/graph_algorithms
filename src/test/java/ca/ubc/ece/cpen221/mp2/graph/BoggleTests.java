@@ -31,7 +31,7 @@ public class BoggleTests {
             for(String s: results){
                 System.out.println(s);
             }
-            System.out.println("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAaa");
+//            System.out.println("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAaa");
             for (String s: results) {
                 if (!dict2.contains(s)) {
                     System.out.println(s);
@@ -47,8 +47,8 @@ public class BoggleTests {
     @Test
     public void test2(){
 
-        File file = new File("./datasets/dictionary-yawl.txt");
-        String file2= new String("./datasets/board-q.txt");
+        File file = new File("./datasets/dictionary-common.txt");
+        String file2= new String("./datasets/board-quinquevalencies.txt");
 
         BoggleBoard board1= new BoggleBoard(file2);
         try{
@@ -63,6 +63,7 @@ public class BoggleTests {
             for(String s: results){
                 System.out.println(s);
             }
+            System.out.println(results.size());
         } catch(FileNotFoundException exc){
             System.out.println("Dictionary could not be found!");
         }

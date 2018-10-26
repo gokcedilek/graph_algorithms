@@ -58,15 +58,11 @@ public class BogglePlayer {
             if (word.length()<3){
                 continue;
             }
-
-
-
-            if (word.equals("SEEP")) {
-                System.out.println("");
-            }
-
-            // System.out.println("Searching for word: " + word);
+            
             for(Vertex v: verticeslist){
+                if(v.getLabel().length()==1){
+                    v.setLabel(v.getLabel().replace("Q", "QU"));}
+                System.out.println(v);
                 String temp= word;
                 visited=new ArrayList<>();
 
@@ -87,7 +83,8 @@ public class BogglePlayer {
     }
 
     public boolean search(Graph graph, Vertex vertex, String word, List<Vertex> visited) {
-        vertex.setLabel(vertex.getLabel().replace("Q", "QU"));
+        if(vertex.getLabel().length()==1){
+        vertex.setLabel(vertex.getLabel().replace("Q", "QU"));}
         List<Vertex> newVisited = new ArrayList<>(visited);
         newVisited.add(vertex);
 
@@ -102,10 +99,12 @@ public class BogglePlayer {
         }
 
 
-        if (vertex.getLabel().contains("Q")) {
+        if (vertex.getLabel().contains("QU")) {
             substring = word.substring(1);
+
             if(substring.startsWith("U")) {
                 substring = substring.substring(1);
+
             }
         }
         else{
