@@ -82,6 +82,7 @@ public class Algorithms {
 				visited.add(startVertex);
 			}
 			Iterator<Vertex> neighborsofV = graph.getNeighbors(startVertex).listIterator();
+
 			while (!linkedStack.empty()) {
 				while (neighborsofV.hasNext()) {
 					startVertex = neighborsofV.next();
