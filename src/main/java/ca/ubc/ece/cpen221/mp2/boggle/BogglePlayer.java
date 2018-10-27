@@ -21,8 +21,11 @@ public class BogglePlayer {
 
     public int getMaximumScore(BoggleBoard board){
         int score=0;
-        for (String word: getAllValidWords(board)){
+        Set<String> words= getAllValidWords(board);
+      //  System.out.println(words);
+        for (String word: words){
             score+=scoreOf(word);
+          //  System.out.println(score);
         }
         return score;
     }
@@ -74,8 +77,8 @@ public class BogglePlayer {
 
 
         }
-        System.out.println(validWords);
-        System.out.println(validWords.size());
+//        System.out.println(validWords);
+//        System.out.println(validWords.size());
 
         return validWords;
     }
@@ -172,31 +175,41 @@ public class BogglePlayer {
 
         return returnlist;
     }
-
     public int scoreOf (String word){
-        if (!Arrays.asList(dictionary).contains(word)) {
+     HashSet<String> dict =dictionary;
+     List<String> myList= new ArrayList<>(dict);
+        if (!myList.contains(word)) {
             return 0;
         }
         int score = 0;
         switch (word.length()) {
             case 0:
                 score += 0;
+                break;
             case 1:
                 score += 0;
+                break;
             case 2:
                 score += 0;
+                break;
             case 3:
                 score += 1;
+                break;
             case 4:
                 score += 1;
+                break;
             case 5:
                 score += 2;
+                break;
             case 6:
                 score += 3;
+                break;
             case 7:
                 score += 5;
+                break;
             default:
                 score += 11;
+                break;
         }
         return score;
     }
