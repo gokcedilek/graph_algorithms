@@ -14,8 +14,8 @@ public class BoggleTests {
     @Test
     public void test1(){
 
-        File file = new File("./datasets/qu.txt");
-        String file2= new String("./datasets/25x25");
+        File file = new File("./datasets/dictionary-common.txt");
+        String file2= new String("./datasets/board4x4.txt");
 
         BoggleBoard board1= new BoggleBoard(file2);
         try{

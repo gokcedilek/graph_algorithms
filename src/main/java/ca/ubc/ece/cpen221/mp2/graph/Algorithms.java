@@ -53,7 +53,6 @@ public class Algorithms {
 		}
 		if(count==graph.getVertices().size()-2){ return -1;}
 		else{ return count;}
-
 	}
 
 	/**
