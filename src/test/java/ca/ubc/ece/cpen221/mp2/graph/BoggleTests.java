@@ -1,6 +1,5 @@
 package ca.ubc.ece.cpen221.mp2.graph;
-
-        import ca.ubc.ece.cpen221.mp2.boggle.BoggleBoard;
+import ca.ubc.ece.cpen221.mp2.boggle.BoggleBoard;
 import ca.ubc.ece.cpen221.mp2.boggle.BogglePlayer;
 import org.junit.Test;
 
