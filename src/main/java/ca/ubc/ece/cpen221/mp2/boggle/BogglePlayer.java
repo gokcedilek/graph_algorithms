@@ -13,11 +13,10 @@ public class BogglePlayer {
 
     public BogglePlayer(String[] dictionary) {
         this.dictionary= new HashSet<String>(Arrays.asList(dictionary));
-        //System.out.print(dictionary);
+
     }
     public BogglePlayer(Set<String> dictionary){
         this.dictionary= new HashSet<String>(dictionary);
-        // System.out.println(dictionary);
     }
 
     public int getMaximumScore(BoggleBoard board){
@@ -36,7 +35,7 @@ public class BogglePlayer {
 
         for (int i = 0; i < board.rows(); i++) {
             for (int j = 0; j < board.cols(); j++) {
-                Vertex v = new Vertex(board.getLetter(i, j) + "", Integer.toString(i*10+j));
+                Vertex v = new Vertex(board.getLetter(i, j) + "", i+","+j);
                 verticeslist.add(v);
                 graph.addVertex(v);
             }
@@ -62,12 +61,10 @@ public class BogglePlayer {
             for(Vertex v: verticeslist){
                 if(v.getLabel().length()==1){
                     v.setLabel(v.getLabel().replace("Q", "QU"));}
-                System.out.println(v);
                 String temp= word;
                 visited=new ArrayList<>();
 
                 if (v.getLabel().equals("S")) {
-                    System.out.println("");
                 }
                 if(search(graph,v,word, visited)) {
                     validWords.add(temp);
@@ -78,6 +75,7 @@ public class BogglePlayer {
 
         }
         System.out.println(validWords);
+        System.out.println(validWords.size());
 
         return validWords;
     }
