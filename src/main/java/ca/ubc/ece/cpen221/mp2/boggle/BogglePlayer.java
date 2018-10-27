@@ -58,7 +58,7 @@ public class BogglePlayer {
             if (word.length()<3){
                 continue;
             }
-            
+
             for(Vertex v: verticeslist){
                 if(v.getLabel().length()==1){
                     v.setLabel(v.getLabel().replace("Q", "QU"));}
@@ -87,9 +87,17 @@ public class BogglePlayer {
         vertex.setLabel(vertex.getLabel().replace("Q", "QU"));}
         List<Vertex> newVisited = new ArrayList<>(visited);
         newVisited.add(vertex);
+        String firstLetter = Character.toString(word.charAt(0));
+        if(word.length()>2){
+            {
+                if (firstLetter.equals("Q")&&Character.toString(word.charAt(1)).equals("U")){
+                    firstLetter = "QU";
+                }
 
+            }
+        }
         String substring = word;
-        if (!vertex.getLabel().equals(Character.toString(word.charAt(0)))) {
+        if (!vertex.getLabel().equals(firstLetter)) {
 //            visited.remove(visited.size()-1);
             return false;
         }

@@ -48,7 +48,7 @@ public class BoggleTests {
     public void test2(){
 
         File file = new File("./datasets/dictionary-common.txt");
-        String file2= new String("./datasets/board-quinquevalencies.txt");
+        String file2= new String("./datasets/board-q.txt");
 
         BoggleBoard board1= new BoggleBoard(file2);
         try{

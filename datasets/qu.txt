@@ -1,0 +1,4 @@
+EQUAL
+QUA
+SEQ
+QUEEN
