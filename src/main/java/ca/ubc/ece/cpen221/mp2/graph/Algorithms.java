@@ -50,7 +50,7 @@ public class Algorithms {
 			}
 		}
 		if(count==graph.getVertices().size()-2){ return -1;}
-		    return count;
+		return count;
 	}
 
     /**

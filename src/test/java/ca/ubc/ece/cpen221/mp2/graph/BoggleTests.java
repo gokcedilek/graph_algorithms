@@ -9,6 +9,8 @@ import java.util.HashSet;
 import java.util.Scanner;
 import java.util.Set;
 
+import static junit.framework.TestCase.assertEquals;
+
 public class BoggleTests {
 
     @Test
@@ -27,17 +29,7 @@ public class BoggleTests {
             }
             BogglePlayer player1= new BogglePlayer(dict2) ;
             Set<String> results= player1.getAllValidWords(board1);
-            for(String s: results){
-                System.out.println(s);
-            }
-//            System.out.println("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAaa");
-            for (String s: results) {
-                if (!dict2.contains(s)) {
-                    System.out.println(s);
-                }
-            }
-
-            System.out.println(results.size());
+            assertEquals(155, results.size());
         } catch(FileNotFoundException exc){
             System.out.println("Dictionary could not be found!");
         }
@@ -59,10 +51,8 @@ public class BoggleTests {
             }
             BogglePlayer player1= new BogglePlayer(dict2) ;
             Set<String> results= player1.getAllValidWords(board1);
-            for(String s: results){
-                System.out.println(s);
-            }
-            System.out.println(results.size());
+
+            assertEquals(1282,results.size());
         } catch(FileNotFoundException exc){
             System.out.println("Dictionary could not be found!");
         }
@@ -82,7 +72,7 @@ public class BoggleTests {
             }
             BogglePlayer player1= new BogglePlayer(dict2) ;
             int scores= player1.getMaximumScore(board1);
-            System.out.println(scores);
+            assertEquals(1768,scores);
         } catch(FileNotFoundException exc){
             System.out.println("Dictionary could not be found!");
         }

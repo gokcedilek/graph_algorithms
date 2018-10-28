@@ -10,12 +10,10 @@ import static org.junit.Assert.*;
 
 
 public class test2 {
-    // possible location for tests
 
     @Test
     public void test1() {
         Graph firstTry_M = new AdjacencyMatrixGraph();
-        //Graph firstTry_L= new AdjacencyListGraph();
         Vertex v1 = new Vertex("1", "one");
         Vertex v2 = new Vertex("2", "two");
         Vertex v3 = new Vertex("3", "three");

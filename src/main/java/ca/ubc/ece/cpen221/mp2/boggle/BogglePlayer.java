@@ -98,8 +98,6 @@ public class BogglePlayer {
 
                 }
             }
-
-
         }
         return validWords;
     }

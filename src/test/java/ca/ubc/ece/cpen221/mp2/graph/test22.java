@@ -60,7 +60,7 @@ public class test22 {
         firstTry_M.addEdge(v5, v6);
         firstTry_M.addEdge(v7, v5);
         firstTry_M.addEdge(v7, v6);
-        //assertEquals(2, Algorithms.diameter(firstTry_M));
+        assertEquals(2, Algorithms.diameter(firstTry_M));
         assertEquals(v5, Algorithms.center(firstTry_M));
     }
 
@@ -121,10 +121,10 @@ public class test22 {
         firstTry_M.addEdge(v4, v5);
         firstTry_M.addEdge(v5, v3);
         firstTry_M.addEdge(v5, v4);
-//        assertEquals(1, Algorithms.shortestDistance(firstTry_M, v1, v2));
-//        assertEquals(1, Algorithms.shortestDistance(firstTry_M, v1, v3));
-//        assertEquals(2, Algorithms.shortestDistance(firstTry_M, v1, v4));
-//        assertEquals(2, Algorithms.shortestDistance(firstTry_M, v1, v5));
+        assertEquals(1, Algorithms.shortestDistance(firstTry_M, v1, v2));
+        assertEquals(1, Algorithms.shortestDistance(firstTry_M, v1, v3));
+        assertEquals(2, Algorithms.shortestDistance(firstTry_M, v1, v4));
+        assertEquals(2, Algorithms.shortestDistance(firstTry_M, v1, v5));
         assertEquals(2, Algorithms.diameter(firstTry_M));
     }
 
