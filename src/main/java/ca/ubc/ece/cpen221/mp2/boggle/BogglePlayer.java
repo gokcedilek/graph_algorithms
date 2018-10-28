@@ -6,6 +6,16 @@ import ca.ubc.ece.cpen221.mp2.graph.AdjacencyListGraph;
 
 import java.util.*;
 
+/* Abstraction Function:
+ * BogglePlayer is a functionality to use the Boggle board.
+ * It can be used to get all the valid words in the board,
+ * calculate the score of a given word,
+ * and calculate the maximum possible score of a given board.
+/*Representation Invariant:
+ * Boggle board is not null, and contains at least one word.
+ * Dictionary is not null, and contains at least one word.
+ */
+
 public class BogglePlayer {
 
     HashSet<String> dictionary;
@@ -19,16 +29,30 @@ public class BogglePlayer {
         this.dictionary= new HashSet<String>(dictionary);
     }
 
+    /**
+     * Gets the maximum score that can be obtained from the given board
+     *
+     * @param board represents a boggle board and board is not null
+     * @return returns the maximum score that can be obtained from the given board
+     *
+     */
+
     public int getMaximumScore(BoggleBoard board){
         int score=0;
         Set<String> words= getAllValidWords(board);
-      //  System.out.println(words);
         for (String word: words){
             score+=scoreOf(word);
-          //  System.out.println(score);
         }
         return score;
     }
+
+    /**
+     * Gets all valid words that can be obtained from a given board
+     *
+     * @param board represents a boggle board and board is not null
+     * @return returns a set of all valid words that can be obtained from the given board
+     *
+     */
 
     public Set<String> getAllValidWords(BoggleBoard board){
         List<Vertex> verticeslist = new ArrayList<>();
@@ -77,13 +101,10 @@ public class BogglePlayer {
 
 
         }
-//        System.out.println(validWords);
-//        System.out.println(validWords.size());
-
         return validWords;
     }
 
-    public boolean search(Graph graph, Vertex vertex, String word, List<Vertex> visited) {
+    private boolean search(Graph graph, Vertex vertex, String word, List<Vertex> visited) {
         if(vertex.getLabel().length()==1){
         vertex.setLabel(vertex.getLabel().replace("Q", "QU"));}
         List<Vertex> newVisited = new ArrayList<>(visited);
@@ -94,20 +115,15 @@ public class BogglePlayer {
                 if (firstLetter.equals("Q")&&Character.toString(word.charAt(1)).equals("U")){
                     firstLetter = "QU";
                 }
-
             }
         }
         String substring = word;
         if (!vertex.getLabel().equals(firstLetter)) {
-//            visited.remove(visited.size()-1);
             return false;
         }
-
         if(word.length() <= 1){
             return true;
         }
-
-
         if (vertex.getLabel().contains("QU")) {
             substring = word.substring(1);
 
@@ -125,12 +141,8 @@ public class BogglePlayer {
             if (!newVisited.contains(v)) {
 
                 retVal |= search(graph, v, substring, newVisited);
-
             }
-
         }
-
-//
         return retVal;
     }
 
@@ -172,9 +184,16 @@ public class BogglePlayer {
                 }
             }
         }
-
         return returnlist;
     }
+
+    /**
+     * Calculate the score of the input word if it exists in the dictionary.
+     * @param word: a string word
+     * @return 0 if word is not included in the dictionary
+     *         score of the word in the dictionary
+     */
+
     public int scoreOf (String word){
      HashSet<String> dict =dictionary;
      List<String> myList= new ArrayList<>(dict);

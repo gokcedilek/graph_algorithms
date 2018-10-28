@@ -226,6 +226,15 @@ public class GraphTests {
     }
 
     @Test
+    public void edgeCase1() {
+        Graph firstTry_L = new AdjacencyListGraph();
+        List<Vertex> test1 = new ArrayList<>();
+        Vertex v1 = new Vertex("1", "one");
+        assertEquals(test1, firstTry_L.getVertices());
+        assertTrue(!firstTry_L.edgeExists(v1, v1));
+    }
+
+    @Test
     public void Test10_dfs(){
         Graph firstTry_L = new AdjacencyListGraph();
         List<Vertex> one = new ArrayList<>();
@@ -356,19 +365,3 @@ public class GraphTests {
         assertEquals(set,Algorithms.depthFirstSearch(firstTry_L));
     }
 }
-
-
-
-
-
-//assertEquals(test1,firstTry_L.getNeighbors(v2));
-//        List<Vertex> test3=firstTry_L.getNeighbors(v4);
-//        test3.sort(new Comparator<Vertex>() {
-//                       @Override
-//                       public int compare(Vertex o1, Vertex o2) {
-//                           String one = o1.toString();
-//                           String two = o2.toString();
-//                           return one.compareTo(two);
-//                       }
-//                   }
-//                assertEquals(test1);
